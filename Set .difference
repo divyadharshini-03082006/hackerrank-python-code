@@ -1,0 +1,6 @@
+n = int(input())
+eng_sub = set(map(int, input().split()))
+m = int(input())
+french_sub = set(map(int, input().split()))
+only_eng = eng_sub.difference(french_sub)
+print(len(only_eng))
