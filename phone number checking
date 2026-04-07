@@ -1,0 +1,8 @@
+n = int(input())
+for i in range(0,n):
+    s = input().strip()
+    if(len(s) == 10 and s[0] in ['7','8','9'] and s.isdigit()):
+        print("YES")
+    else:
+        print("NO")
+   
