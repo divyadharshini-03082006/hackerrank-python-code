@@ -1,0 +1,5 @@
+from collections import Counter
+s = input().strip()
+char_counts = Counter(sorted(s))
+for char, count in char_counts.most_common(3):
+    print(f"{char} {count}")
