@@ -1,0 +1,9 @@
+from itertools import combinations
+n = int(input())
+letters = input().split()
+k = int(input())
+indices = range(n)
+comb = list(combinations(indices, k))
+valid_combinations = [c for c in comb if any(letters[i] == 'a' for i in c)]
+probability = len(valid_combinations) / len(comb)
+print(f"{probability:.4f}")
