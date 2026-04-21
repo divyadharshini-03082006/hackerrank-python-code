@@ -1,0 +1,23 @@
+import sys
+def solve():
+    t = int(sys.stdin.readline())
+    for _ in range(t):
+        n = int(sys.stdin.readline())
+        blocks = list(map(int, sys.stdin.readline().split()))
+        left, right = 0, n - 1
+        last_stacked = float('inf')
+        possible = True
+        while left <= right:
+            if blocks[left] >= blocks[right]:
+                current = blocks[left]
+                left += 1
+            else:
+                current = blocks[right]
+                right -= 1
+            if current > last_stacked:
+                possible = False
+                break
+            last_stacked = current
+        print("Yes" if possible else "No")
+if __name__ == "__main__":
+    solve()
