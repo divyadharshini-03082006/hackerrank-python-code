@@ -1,0 +1,31 @@
+import sys
+
+def validate_uid(uid: str) -> str:
+    if len(uid) != 10:
+        return "Invalid"
+    if not uid.isalnum():
+        return "Invalid"
+    if len(set(uid)) != 10:
+        return "Invalid"
+    upper_count = 0
+    digit_count = 0
+    
+    for char in uid:
+        if char.isupper():
+            upper_count += 1
+        elif char.isdigit():
+            digit_count += 1
+    if upper_count >= 2 and digit_count >= 3:
+        return "Valid"
+    
+    return "Invalid"
+
+if __name__ == '__main__':
+    input_data = sys.stdin.read().splitlines()
+    
+    if input_data:
+        num_test_cases = int(input_data[0].strip())
+        
+        for i in range(1, num_test_cases + 1):
+            uid = input_data[i].strip()
+            print(validate_uid(uid))
